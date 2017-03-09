@@ -10,5 +10,4 @@ module.exports = (app) => {
   app.delete('/contacts/:id', ContactsController.deleteContact)
 
 
-
 };
