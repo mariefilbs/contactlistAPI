@@ -21,10 +21,31 @@ module.exports = {
  },
 
  listOneContact (req, res) {
-   Contacts.findAll ({
-     where: {
-       id: req.param.id
-     }
-   })
- }
-};
+   Contacts.findById(req.params.id)
+   .then(contacts => res.status(200).send(contacts))
+   .catch(error => res.status(400).send(error));
+ },
+
+ updateContact (req, res) {
+  return Contacts
+    .findById(req.params.id)
+    .then(contacts => {
+      return contacts
+        .update({
+          name: req.body.name || contacts.name,
+        })
+        .then(() => res.status(200).send(contacts))  // Send back the updated todo.
+        .catch((error) => res.status(400).send(error));
+    })
+ },
+
+  deleteContact (req, res) {
+    return Contacts
+      .findById(req.params.id)
+      .then(contacts => {
+        return contacts
+        .deleteContact()
+        .then(() => res.status(204).send({ message:'Contact deleted successfully.'}))})
+        .catch((error) => res.status(400).send(error));
+  }
+}
