@@ -10,5 +10,5 @@ module.exports = (app) => {
   app.delete('/contacts/:id', ContactsController.deleteContact)
 
 
-  // app.get('contacts/ ', ContactsController.updateContact)
+
 };

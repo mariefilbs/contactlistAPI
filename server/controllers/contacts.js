@@ -34,7 +34,7 @@ module.exports = {
         .update({
           name: req.body.name || contacts.name,
         })
-        .then(() => res.status(200).send(contacts))  // Send back the updated todo.
+        .then(() => res.status(200).send(contacts))  // Send back the updated contact.
         .catch((error) => res.status(400).send(error));
     })
  },
