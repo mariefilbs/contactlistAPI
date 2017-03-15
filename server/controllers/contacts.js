@@ -45,7 +45,8 @@ module.exports = {
       .then(contacts => {
         return contacts
         .deleteContact()
-        .then(() => res.status(201).send({ message:'Contact deleted successfully.'}))})
+        .then(() => res.status(201).send({ message:'Contact deleted successfully.'}))
+      })
         .catch((error) => res.status(400).send(error));
   }
 }
